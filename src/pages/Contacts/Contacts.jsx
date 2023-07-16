@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
+import React from 'react';
+import { ContactForm } from 'pages/ContactForm/ContactForm';
+import { ContactList } from 'pages/ContactList/ContactList';
+import { Filter } from 'pages/Filter/Filter';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContactThunk } from 'redux/operations';
-
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-export const App = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,3 +30,5 @@ export const App = () => {
     </div>
   );
 };
+
+export default Contacts;
