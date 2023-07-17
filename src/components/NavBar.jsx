@@ -11,7 +11,11 @@ const NavBar = () => {
   return (
     <header className="phone-screen mb-4">
       <nav className="flex justify-center mb-4">
-        {isLoggedIn && <Link to="/contacts" />}
+        {isLoggedIn && (
+          <Link to="/contacts" className="btn btn-green mr-2">
+            Contacts
+          </Link>
+        )}
         {!isLoggedIn && (
           <div>
             <Link to="/login" className="btn btn-green mr-2">
