@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { selectLoggedIn, selectUser } from 'redux/auth/authSelectors';
 import { logoutThunk } from 'redux/auth/operations';
 
@@ -11,15 +11,15 @@ const NavBar = () => {
   return (
     <header className="phone-screen mb-4">
       <nav className="flex justify-center mb-4">
-        {isLoggedIn && <NavLink to="/contacts" />}
+        {isLoggedIn && <Link to="/contacts" />}
         {!isLoggedIn && (
           <div>
-            <NavLink to="/login" className="btn btn-green mr-2">
+            <Link to="/login" className="btn btn-green mr-2">
               Login
-            </NavLink>
-            <NavLink to="/register" className="btn btn-green">
+            </Link>
+            <Link to="/register" className="btn btn-green">
               Register
-            </NavLink>
+            </Link>
           </div>
         )}
       </nav>
