@@ -9,15 +9,31 @@ const NavBar = () => {
   const isLoggedIn = useSelector(selectLoggedIn);
   const user = useSelector(selectUser);
   return (
-    <header>
-      <nav>{isLoggedIn && <NavLink to="/contacts" />}</nav>
-      {isLoggedIn && <h1>Hello {user.name}</h1>}
-
-      <div>
-        {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
-        {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
+    <header className="phone-screen mb-4">
+      <nav className="flex justify-center mb-4">
+        {isLoggedIn && <NavLink to="/contacts" />}
+        {!isLoggedIn && (
+          <div>
+            <NavLink to="/login" className="btn btn-green mr-2">
+              Login
+            </NavLink>
+            <NavLink to="/register" className="btn btn-green">
+              Register
+            </NavLink>
+          </div>
+        )}
+      </nav>
+      {isLoggedIn && (
+        <h1 className="text-xl text-center mb-2">Hello {user.name}</h1>
+      )}
+      <div className="flex justify-center">
         {isLoggedIn && (
-          <button onClick={() => dispatch(logoutThunk())}>Exit</button>
+          <button
+            onClick={() => dispatch(logoutThunk())}
+            className="btn btn-green"
+          >
+            Exit
+          </button>
         )}
       </div>
     </header>

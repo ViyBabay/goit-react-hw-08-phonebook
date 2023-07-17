@@ -1,12 +1,11 @@
-import React from 'react';
-import { ContactForm } from 'pages/ContactForm/ContactForm';
-import { ContactList } from 'pages/ContactList/ContactList';
-import { Filter } from 'pages/Filter/Filter';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactThunk } from 'redux/operations';
 import { ToastContainer } from 'react-toastify';
 import { selectLoggedIn } from 'redux/auth/authSelectors';
+import { ContactForm } from 'pages/ContactForm/ContactForm';
+import { Filter } from 'pages/Filter/Filter';
+import { ContactList } from 'pages/ContactList/ContactList';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -17,14 +16,7 @@ const Contacts = () => {
   }, [dispatch, isLoggedIn]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <div className="contacts-container">
       <ContactForm />
       <Filter />
       <ContactList />

@@ -1,8 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
 import { registerThunk } from 'redux/auth/operations';
 
 const RegisterPage = () => {
@@ -29,13 +27,14 @@ const RegisterPage = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex flex-col items-center">
         <input
           type="text"
           placeholder="name"
           onChange={handleChangeInput}
           name="name"
           value={credentials.name}
+          className="input w-full max-w-xs mb-4"
         />
         <input
           type="text"
@@ -43,6 +42,7 @@ const RegisterPage = () => {
           onChange={handleChangeInput}
           name="email"
           value={credentials.email}
+          className="input w-full max-w-xs mb-4"
         />
         <input
           type="password"
@@ -50,8 +50,11 @@ const RegisterPage = () => {
           onChange={handleChangeInput}
           name="password"
           value={credentials.password}
+          className="input w-full max-w-xs mb-4"
         />
-        <button>Register</button>
+        <button className="btn btn-green w-full" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );

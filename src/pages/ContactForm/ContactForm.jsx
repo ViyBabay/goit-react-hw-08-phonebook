@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContactThunk } from 'redux/operations';
-import s from './ContactForm.module.css';
 import { selectContacts } from 'redux/selectors';
 import { toast } from 'react-toastify';
 
@@ -26,12 +25,12 @@ export const ContactForm = () => {
 
   return (
     <>
-      <h1>PhoneBook</h1>
-      <form onSubmit={handleSubmit} className={s.form}>
-        <label className={s.label}>
-          <p className={s.parag}>Name</p>
+      <h1 className="text-4xl font-bold text-center mb-6">PhoneBook</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col items-center">
+        <label className="block mb-4">
+          <span className="label">Name:</span>
           <input
-            className={s.input}
+            className="input w-full px-3 py-2 rounded"
             type="text"
             name="name"
             value={name}
@@ -40,10 +39,10 @@ export const ContactForm = () => {
             required
           />
         </label>
-        <label className={s.label}>
-          <p className={s.parag}>Number</p>
+        <label className="block mb-4">
+          <span className="label">Number:</span>
           <input
-            className={s.input}
+            className="input w-full px-3 py-2 rounded"
             type="tel"
             name="number"
             value={number}
@@ -52,7 +51,7 @@ export const ContactForm = () => {
             required
           />
         </label>
-        <button type="submit" className={s.submit}>
+        <button type="submit" className="btn btn-green w-full">
           Add contact
         </button>
       </form>

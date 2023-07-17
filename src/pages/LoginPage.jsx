@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { loginThunk } from 'redux/auth/operations';
@@ -28,13 +27,14 @@ const LoginPage = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex flex-col items-center">
         <input
           type="text"
           placeholder="email"
           onChange={handleChangeInput}
           name="email"
           value={credentials.email}
+          className="input w-full max-w-xs mb-4"
         />
         <input
           type="password"
@@ -42,8 +42,11 @@ const LoginPage = () => {
           onChange={handleChangeInput}
           name="password"
           value={credentials.password}
+          className="input w-full max-w-xs mb-4"
         />
-        <button>Login</button>
+        <button className="btn btn-green w-full" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

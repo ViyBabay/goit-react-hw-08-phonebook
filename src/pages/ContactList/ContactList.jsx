@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContactThunk } from 'redux/operations';
 import { selectContacts, selectFilter } from 'redux/selectors';
-import s from './ContactList.module.css';
 
 const getVisibleContacts = (contacts, filter) => {
   return contacts.filter(contact =>
@@ -18,13 +17,14 @@ export const ContactList = () => {
   const visibleContacts = getVisibleContacts(contacts, filter);
 
   return (
-    <ul>
+    <ul className="contact-list">
       {visibleContacts.map(contact => (
-        <li key={contact.id} className={s.list}>
-          {contact.name}: {contact.number}
+        <li key={contact.id} className="contact-item">
+          <span className="contact-name">{contact.name}:</span>
+          <span className="contact-number">{contact.number}</span>
           <button
             onClick={() => dispatch(deleteContactThunk(contact.id))}
-            className={s.delBtn}
+            className="contact-delete-button"
           >
             Delete
           </button>

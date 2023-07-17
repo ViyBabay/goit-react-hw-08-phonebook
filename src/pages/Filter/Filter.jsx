@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { filterContact } from 'redux/slice';
-import s from './Filter.module.css';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -12,11 +11,11 @@ export const Filter = () => {
 
   return (
     <>
-      <h2>Contacts</h2>
-      <label className={s.label}>
-        <p className={s.parag}>Find contact by name:</p>
+      <h2 className="contacts-heading">Contacts</h2>
+      <label className="filter-label">
+        <p className="label-text">Find contact by name:</p>
         <input
-          className={s.input}
+          className="filter-input"
           type="text"
           onChange={handleFilterChange}
         ></input>
