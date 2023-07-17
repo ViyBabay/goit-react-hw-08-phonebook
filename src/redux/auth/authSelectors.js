@@ -3,7 +3,6 @@ import { createSelector } from '@reduxjs/toolkit';
 export const selectLoggedIn = state => state.auth.isLoggedIn;
 
 export const selectUserData = state => {
-  //   console.log('USER DATA UPDATE');
   return state.auth.user;
 };
 

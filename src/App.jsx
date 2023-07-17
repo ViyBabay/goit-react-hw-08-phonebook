@@ -8,10 +8,8 @@ import LoginPage from 'pages/LoginPage';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import { PublicRoute } from 'hoc/PublicRoute';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { refreshThunk } from 'redux/operations';
-import { toast } from 'react-toastify';
-import { selectIsRefresh } from 'redux/auth/authSelectors';
 
 export const App = () => {
   const dispatch = useDispatch();
