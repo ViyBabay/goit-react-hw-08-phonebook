@@ -10,6 +10,7 @@ import { PublicRoute } from 'hoc/PublicRoute';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshThunk } from 'redux/operations';
+import './index.css';
 
 export const App = () => {
   const dispatch = useDispatch();

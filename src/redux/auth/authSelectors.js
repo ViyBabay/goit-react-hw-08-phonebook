@@ -7,5 +7,3 @@ export const selectUserData = state => {
 };
 
 export const selectUser = createSelector([selectUserData], user => user);
-
-export const selectIsRefresh = state => state.auth.isRefreshing;

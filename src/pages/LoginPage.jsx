@@ -1,14 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { loginThunk } from 'redux/auth/operations';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  // const location = useLocation()
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -20,7 +17,6 @@ const LoginPage = () => {
       .unwrap()
       .then(() => {
         toast.success('Welcome back!');
-        navigate('/contacts');
       });
   };
   const handleChangeInput = ({ target }) => {
