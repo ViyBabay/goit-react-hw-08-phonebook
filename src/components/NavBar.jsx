@@ -26,7 +26,15 @@ const NavBar = () => {
           <button onClick={() => navigate('/register')}>Register</button>
         )}
         {isLoggedIn && (
-          <button onClick={() => dispatch(logoutThunk())}>Exit</button>
+          <button
+            onClick={() =>
+              dispatch(logoutThunk())
+                .unwrap()
+                .then(() => navigate('/login'))
+            }
+          >
+            Exit
+          </button>
         )}
       </div>
     </header>

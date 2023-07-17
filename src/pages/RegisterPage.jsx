@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import { registerThunk } from 'redux/auth/operations';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     name: '',
     email: '',
@@ -15,9 +16,9 @@ const RegisterPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(credentials);
-    dispatch(registerThunk(credentials));
-    // .unwrap()
-    // .then(() => navigate('/contacts'));
+    dispatch(registerThunk(credentials))
+      .unwrap()
+      .then(() => navigate('/contacts'));
   };
   const handleChangeInput = ({ target }) => {
     const { name, value } = target;

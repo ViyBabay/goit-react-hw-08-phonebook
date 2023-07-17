@@ -28,12 +28,12 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(loginThunk.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-        state.loading = false;
-      })
+      // .addCase(loginThunk.fulfilled, (state, action) => {
+      //   state.user = action.payload.user;
+      //   state.token = action.payload.token;
+      //   state.isLoggedIn = true;
+      //   state.loading = false;
+      // })
       .addCase(logoutThunk.fulfilled, (state, action) => {
         state.user = {
           name: '',
@@ -46,6 +46,15 @@ const authSlice = createSlice({
       .addMatcher(
         isAnyOf(loginThunk.rejected, registerThunk.rejected),
         rejected
+      )
+      .addMatcher(
+        isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),
+        (state, action) => {
+          state.user = action.payload.user;
+          state.token = action.payload.token;
+          state.isLoggedIn = true;
+          state.loading = false;
+        }
       );
   },
 });

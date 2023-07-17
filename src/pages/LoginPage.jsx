@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { loginThunk } from 'redux/auth/operations';
 
 const LoginPage = () => {
@@ -14,9 +15,12 @@ const LoginPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(credentials);
-    dispatch(loginThunk(credentials));
-    //   .unwrap()
-    //   .then(() => navigate('/contacts'));
+    dispatch(loginThunk(credentials))
+      .unwrap()
+      .then(() => {
+        toast.success('Welcome back!');
+        navigate('/contacts');
+      });
   };
   const handleChangeInput = ({ target }) => {
     const { name, value } = target;
