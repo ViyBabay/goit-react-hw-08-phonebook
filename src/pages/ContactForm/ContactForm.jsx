@@ -9,7 +9,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -19,9 +19,9 @@ export const ContactForm = () => {
     if (existingContact) {
       return toast.warn(`${name} is already in contacts!`);
     }
-    dispatch(addContactThunk({ name, phone }));
+    dispatch(addContactThunk({ name, number }));
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -46,8 +46,8 @@ export const ContactForm = () => {
             className={s.input}
             type="tel"
             name="number"
-            value={phone}
-            onChange={e => setPhone(e.target.value)}
+            value={number}
+            onChange={e => setNumber(e.target.value)}
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
