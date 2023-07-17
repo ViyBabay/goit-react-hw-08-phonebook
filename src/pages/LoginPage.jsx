@@ -8,6 +8,7 @@ import { loginThunk } from 'redux/auth/operations';
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const location = useLocation()
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
